@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css" media="all" />
+<script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<style>
+body { 
+    background-image: url('Background/1gray_marble_texture_21.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	padding-top: 100px;
+    padding-right: 10px;
+    padding-bottom: 25px;
+    padding-left: 10px;
+}
+
+
+
+#login{
+width: 100%;
+
+
+}
+
+
+
+</style>
+
+</head>
+<body>
+<button id="buttonfb">Dwight </button>
+<script src="cordova.js"></script>
+<script src="js/openfb.js"></script>
+<script>
+openFB.init({appId: '432269416939239'});
+$("#buttonfb").click(function(){
+openFB.login(
+                function(response) {
+                    if(response.status === 'connected') {
+                        location.href="news.html";
+                    } else {
+                        alert('Facebook login failed: ' + response.error);
+                    }
+                }, {scope: 'email,read_stream,publish_actions'});
+});
+
+</script>
+
+</body>
+
+</html>
